@@ -215,11 +215,7 @@ class UserPostList extends React.Component<Props> {
                         }
                     },
                     reason => {
-                        const { uploadingList: oldList } = this.state;
-                        this.setState({
-                            uploadingList: oldList.filter(item => item.tempId !== tempId)
-                        });
-                        alert(reason.toString());
+                        console.log(reason);
                     }
                 );
             }
@@ -247,7 +243,6 @@ class UserPostList extends React.Component<Props> {
                 return;
             }
 
-            const [currentObj] = this.props.fileList.filter(item => item.aid === aid);
             const addedItem = {
                 tempId,
                 file,
@@ -286,7 +281,7 @@ class UserPostList extends React.Component<Props> {
                     const { code, message } = JSON.parse(response);
                     const { uploadingList: oldList } = this.state;
                     if (code === 200) {
-                        const [[targetObj], newUploadingList] = oldList.reduce(
+                        const [_, newUploadingList] = oldList.reduce(
                             (p, cur) => {
                                 if (cur.tempId === tempId) {
                                     p[0].push(cur);

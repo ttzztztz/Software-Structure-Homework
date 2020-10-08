@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import BraftEditor from "braft-editor";
 
-import { WithStyles, withStyles } from "@material-ui/core";
+import { AppBar, Toolbar, WithStyles, withStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
@@ -116,15 +116,19 @@ class Post extends React.PureComponent<Props> {
         const renderForum = ["分类A", "分类B"];
         return (
             <>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Typography variant="h6" className={classes.title}>
+                            编辑器
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
                 <Paper className={classes.root}>
-                    <Typography variant="h5" component="h3" className={classes["title"]}>
-                        编辑器
-                    </Typography>
                     <div className={classes["title-container"]}>
                         <TextField
                             id="forum"
                             select
-                            label="版块"
+                            label="分类"
                             className={classes["post-forum"]}
                             onChange={this.handleChange("fid")}
                             SelectProps={{
@@ -143,7 +147,7 @@ class Post extends React.PureComponent<Props> {
                         </TextField>
                         <TextField
                             id="title"
-                            label="帖子标题"
+                            label="标题"
                             className={classes["post-title"]}
                             value={title}
                             onChange={this.handleChange("subject")}

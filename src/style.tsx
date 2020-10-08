@@ -8,8 +8,7 @@ const styles = (theme: Theme) =>
             padding: theme.spacing(3, 2)
         },
         title: {
-            userSelect: "none",
-            margin: theme.spacing(0, 0, 2, 0)
+            flexGrow: 1
         },
         button: {
             margin: theme.spacing(1)
@@ -56,9 +55,6 @@ const styles = (theme: Theme) =>
         },
         "attach-container": {
             margin: theme.spacing(3, 0)
-        },
-        snackbar: {
-            margin: theme.spacing(0, 0, 2, 0)
         },
         "snackbar-success": {
             backgroundColor: blue[600]
